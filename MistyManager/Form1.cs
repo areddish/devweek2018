@@ -8,12 +8,15 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace MistyManager
 {
     public partial class Form1 : Form
     {
+        private System.Timers.Timer timer;
+
         public Form1()
         {
             InitializeComponent();
@@ -42,9 +45,26 @@ namespace MistyManager
             HttpClient client = new HttpClient();
             var resp = client.PostAsync(url, new StringContent(payload)).Result;
             if (resp.StatusCode == HttpStatusCode.OK)
-                MessageBox.Show("Training started, look into camera");
+            {
+                timer = new System.Timers.Timer(10000);
+                timer.Elapsed += T_Elapsed;
+                timer.Start();
+                panel2.Show();
+            }
             else
-                MessageBox.Show("Couldn't train... Try again!");
+            {
+                MessageBox.Show("Couldn't train... Try again!", "Error!", MessageBoxButtons.OK);
+            }
         }
+
+        private void T_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            this.BeginInvoke(new Action(() =>
+            {
+                panel2.Visible = false;
+            }));
+            timer.Stop();
+        }
+
     }
 }
