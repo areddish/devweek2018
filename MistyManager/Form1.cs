@@ -26,7 +26,7 @@ namespace MistyManager
             var resp = client.GetAsync(url).Result;
             var text = resp.Content.ReadAsStringAsync().Result;
 
-            MessageBox.Show(resp.Content.ReadAsStringAsync().Result);
+            //MessageBox.Show(resp.Content.ReadAsStringAsync().Result);
             if (text.Contains("status=OK"))
             {
                 panel1.Visible = true;
@@ -37,7 +37,7 @@ namespace MistyManager
         private void button2_Click(object sender, EventArgs e)
         {
             var url = string.Format("http://{0}/api/beta/faces/training/start", textBox3.Text);
-            var payload = string.Format("{\"FaceId\":\"{0}\"}", textBox2.Text);
+            var payload = string.Format("{{\"FaceId\":\"{0}\"}}", textBox2.Text);
 
             HttpClient client = new HttpClient();
             var resp = client.PostAsync(url, new StringContent(payload)).Result;
