@@ -46,9 +46,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(475, 35);
+            this.button1.Location = new System.Drawing.Point(475, 30);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 36);
+            this.button1.Size = new System.Drawing.Size(171, 41);
             this.button1.TabIndex = 0;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
@@ -150,9 +150,9 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(12, 24);
+            this.panel2.Location = new System.Drawing.Point(12, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(700, 334);
+            this.panel2.Size = new System.Drawing.Size(700, 328);
             this.panel2.TabIndex = 3;
             this.panel2.Visible = false;
             // 
